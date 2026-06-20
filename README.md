@@ -1,17 +1,32 @@
-# Integrated-mobile-manipulator-robots-using-weebot-simulation
-Flexible automation in modern manufacturing requires integrated mobile-manipulator robots 
-capable of dynamic navigation and precise manipulation. This project presents a fully simulated 
-collaborative robotic system in Webots, consisting of a compact differential-drive mobile base 
-and a 3-DoF RRR manipulator. The mobile platform (0.40×0.25×0.18 m) utilizes three distance 
-sensors and GPS/compass modules. Navigation combines reactive obstacle avoidance with a 
-global A* planner operating on a 0.05 m-resolution grid. Manipulator motion uses quintic 
-polynomial trajectories respecting joint constraints, enhanced by an A* planner incorporating a 
-neural-network heuristic, reducing search expansions by 35% without significantly 
-compromising optimality.
-The coordination between robots uses a simple protocol: upon arrival, the mobile robot sends a 
-"READY" signal; the manipulator executes pick-and-place with quintic trajectory 
-synchronization, ensuring 100% success even under simulated communication delays.
-Extensive testing demonstrates navigation completion within 15 ± 3 s without collisions, 
-averaging just 2.1 replans per run and maintaining 90% grasp success under ±5 cm placement 
-variability. Results affirm robustness, responsiveness, and modularity, setting a foundation for 
-advanced future developments.
+# Integrated Mobile-Manipulator Robot — Webots Simulation
+
+A simulated collaborative robotic system combining a mobile robot base with a robotic arm, built in Webots to explore autonomous navigation and precision manipulation working together — the kind of integration used in flexible manufacturing automation.
+
+## What it does
+
+- Simulates a differential-drive mobile robot base (0.40 × 0.25 × 0.18 m) paired with a 3-DoF RRR manipulator arm.
+- Navigation combines reactive obstacle avoidance with a global **A\* path planner** on a 0.05 m-resolution grid, using onboard distance sensors and GPS/compass modules.
+- Manipulator motion uses **quintic polynomial trajectories** within joint constraints, with an enhanced A* planner using a neural-network heuristic that reduced search expansions by 35% without compromising path quality.
+- Mobile base and manipulator coordinate via a simple handoff protocol: the mobile robot signals "READY" on arrival, and the manipulator executes pick-and-place with trajectory synchronization.
+
+## Tools & Stack
+
+- **Webots** (robot simulation)
+- **MATLAB**
+
+## Results
+
+- Navigation completed in 15 ± 3 seconds per run with zero collisions, averaging 2.1 replans per run.
+- 100% pick-and-place success even under simulated communication delays.
+- 90% grasp success maintained under ±5 cm placement variability.
+- 35% reduction in path-planning search expansions from the neural-network-enhanced heuristic.
+
+## Files
+
+- `rrr_controller/` — manipulator and navigation control code
+- `Robot_.wbt` — Webots world/simulation file
+- `Acw2.pdf` — full technical write-up and evaluation
+
+## Status
+
+Individual project. Fully simulated and tested in Webots.
